@@ -10,7 +10,7 @@ function App() {
         <Route
           exact
           path="/"
-          render={ Login }
+          component={ Login }
         />
       </Switch>
     </main>
