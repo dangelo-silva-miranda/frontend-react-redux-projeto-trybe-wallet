@@ -13,7 +13,7 @@ class Select extends Component {
               (option) => (
                 <option
                   key={ option }
-                  value={ option.toLowerCase() }
+                  value={ option }
                 >
                   {option}
                 </option>
