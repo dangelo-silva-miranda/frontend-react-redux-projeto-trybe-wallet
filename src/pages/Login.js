@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { saveEmailAction } from '../actions';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       email: '',
