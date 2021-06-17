@@ -18,32 +18,29 @@ export const REQUEST_CURRENCIES_SUCCESS = 'REQUEST_CURRENCIES_SUCCESS';
 
 export const REQUEST_CURRENCIES_ERROR = 'REQUEST_CURRENCIES_ERROR';
 
-export const requestCurrenciesAction = () => ({
+const requestCurrenciesAction = () => ({
   type: REQUEST_CURRENCIES,
   payload: {
     isFetching: true,
   },
 });
 
-export const requestCurrenciesSuccessAction = (currenciesData) => {
-  const excludedCurrency = 'USDT';
-  const currencies = Object.keys(currenciesData).reduce((acc, currency) => {
-    if (currency !== excludedCurrency) {
-      acc[currency] = currenciesData[currency];
-    }
-    return acc;
-  }, {});
+// const excludedCurrency = 'USDT';
+// const currencies = Object.keys(currenciesData).reduce((acc, currency) => {
+//   if (currency !== excludedCurrency) {
+//     acc[currency] = currenciesData[currency];
+//   }
+//   return acc;
+// }, {});
+const requestCurrenciesSuccessAction = (currencies) => ({
+  type: REQUEST_CURRENCIES_SUCCESS,
+  payload: {
+    isFetching: false,
+    currencies,
+  },
+});
 
-  return {
-    type: REQUEST_CURRENCIES_SUCCESS,
-    payload: {
-      isFetching: false,
-      currencies,
-    },
-  };
-};
-
-export const requestCurrenciesErrorAction = (error) => ({
+const requestCurrenciesErrorAction = (error) => ({
   type: REQUEST_CURRENCIES_ERROR,
   payload: {
     isFetching: false,
@@ -68,3 +65,16 @@ export const fetchEconomiaAwesome = () => async (dispatch) => {
   //   requestISSLocationError(issLocationError),
   // ));
 };
+
+export const ADD_EXPENSE = 'ADD_EXPENSE';
+
+// export const REQUEST_CURRENCIES_SUCCESS = 'REQUEST_CURRENCIES_SUCCESS';
+
+// export const REQUEST_CURRENCIES_ERROR = 'REQUEST_CURRENCIES_ERROR';
+
+export const addExpenseAction = (expense) => ({
+  type: ADD_EXPENSE,
+  payload: {
+    expense,
+  },
+});
