@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { type, name, label/* , onChange, dataTestidInfo */ } = this.props;
+    const { type, name, label, onChange/* , dataTestidInfo */ } = this.props;
     const id = `${name}-input`;
     // console.log(`onChange: ${(onChange) ? 'oi' : 'undef'}`);
     const dataTestid = id;
@@ -24,6 +24,7 @@ class Input extends Component {
           type={ type }
           name={ name }
           data-testid={ dataTestid }
+          onChange={ onChange }
         />
       </label>
     );
@@ -34,6 +35,7 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }.isRequired;
 
 export default Input;
